@@ -1,0 +1,35 @@
+{% extends 'layouts/default.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+    {% if auth %}
+        Vous êtes connecté
+    {% else %}
+        Vous n'êtes pas connecté
+    {% endif %}
+
+    {% if logged %}
+        Bonjour {{ username }}
+    {% else %}
+        Vous n'êtes pas connecté
+    {% endif %}
+
+    Utilisateurs :
+    <ul>
+    {% for user in users %}
+        <li>{{ user|capitalize }}</li>
+    {% endfor %}
+    </ul>
+
+    {{ users|first }}
+    {{ users|last }}
+
+    {{ users|json_encode }}
+
+    {{ script|escape }}
+
+    {{ dump(users) }}
+
+{% endblock %}

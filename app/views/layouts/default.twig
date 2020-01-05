@@ -1,0 +1,17 @@
+{% set _title = block('title') %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My website {% if _title is not empty %} | {{ _title }} {% endif %}</title>
+    {% include 'includes/head.twig' with {'bootstrap' : 'true'} %}
+</head>
+<body>
+    <div class="container mt-5">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
